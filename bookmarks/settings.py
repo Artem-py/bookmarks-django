@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'images.apps.ImagesConfig',
     'social_django',
     'django_extensions',
 ]
@@ -137,4 +138,12 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '3014886855373745' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '73598ee0b839d530e14016bb7b16e432' # Facebook App Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '352363759032-dbo4dqa7eoa8e9b2torgncbcp5eblihp.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
