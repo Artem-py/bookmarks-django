@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from django.urls import reverse_lazy
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -148,3 +150,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '3014886855373745' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '73598ee0b839d530e14016bb7b16e432' # Facebook App Secret
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '352363759032-dbo4dqa7eoa8e9b2torgncbcp5eblihp.apps.googleusercontent.com' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username]),
+}
